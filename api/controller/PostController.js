@@ -34,6 +34,16 @@ const createNewPost = (req, res) => {
   }
 };
 
+const allPost = async (req, res) => {
+  const posts = await PostModel.find();
+  if (posts.length !== 0) {
+    return res.json({ post: posts });
+  } else {
+    return res.json({ post: null });
+  }
+};
+
 module.exports = {
   NewPost: createNewPost,
+  AllPosts: allPost,
 };

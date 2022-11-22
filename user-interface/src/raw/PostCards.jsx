@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Row, Button, Container } from "react-bootstrap";
+import { Card, Col, Row, Container } from "react-bootstrap";
 import { AiOutlineLike } from "react-icons/ai";
 
 const PostCards = ({ data }) => {

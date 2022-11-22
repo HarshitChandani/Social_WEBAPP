@@ -45,3 +45,7 @@
 .bg_color{
   background-color:  rgb(241 225 193);
 }
+
+.w-35{
+  width:35% !important
+}

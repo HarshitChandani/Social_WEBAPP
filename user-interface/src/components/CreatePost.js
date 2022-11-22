@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreatePostForm from "../raw/CreatePostForm";
 import { newPost } from "../redux/slice";
-import { fetchLoadingStatus } from "../redux/storeDataFetcher";
+import { fetchSelector } from "../redux/storeDataFetcher";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
 
-  const isRequestPending = useSelector((state) => fetchLoadingStatus(state));
+  const isRequestPending = useSelector((state) =>
+    fetchSelector(state)
+  ).fetchLoadingStatus;
+  const credential_token = useSelector((state) => fetchSelector(state))
+    .fetchLogin.token;
 
   const [postData, handlePostData] = useState({
     creator: "",
@@ -46,6 +50,7 @@ const CreatePost = () => {
           title: postData.title,
           description: postData.description,
           banner: postData.file,
+          token: credential_token,
         })
       );
       handlePostData.creator = "";
